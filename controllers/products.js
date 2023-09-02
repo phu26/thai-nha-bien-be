@@ -1,7 +1,8 @@
 import { ProductModel } from "../Models/ProductModel.js";
 import multer  from "multer";
 const DIR = './public/';
-
+var fs = require('fs');
+var path = require('path');
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, DIR);
@@ -86,22 +87,10 @@ export const createProduct = async (req,res) =>{
     try{
        
    
-        const {base641} =  req.body.image;
-        const product =  new ProductModel({
-            
-            title:req.body.title,
-            price:req.body.price,
-            image:req.body.image,
+       
+            image:req.body.image;
            
-            slug:req.body.categorySlug,
-            khohang:req.body.sl,
-            sub:req.body.object,
-            size:req.body.tenPL,
-            description:req.body.body,
-           
-        });
-        await product.save();   
-        res.status(200).json(product);
+            upload
       
     }
     catch(err){
@@ -111,7 +100,7 @@ export const createProduct = async (req,res) =>{
     
     }
 
-
+    
 export const productByID = async (req, res) => {
 try{
     const id = req.params.productId;
@@ -131,3 +120,7 @@ catch(err)
 }
 
 }
+export const zaalo = async (req, res) => {
+   
+    
+    }
